@@ -1,0 +1,197 @@
+<html>
+<head>
+	<title>Homework 6</title>
+	<link rel="stylesheet" type="text/css" href="homework6.css">
+	<script type="text/javascript" src="homework6.js"></script>
+	<script type="text/javascript" src="OSC.js"></script>
+</head>
+<body>
+	<div class="hero-image">
+  	<div class="hero-text">
+    	<h1>The Headphone Finder</h1>
+    	<p>Search for and get headphones recommended to you</p>
+    	<button  class="heroBtn"><a href="#browser">Headphone Browser</a></button>
+  </div>
+	</div>
+	<h2 style="text-align:center">Headphone Recommender</h2>
+	<select class="select-css" name="brand" id="brand"required >
+		<option value="none">none</option>
+		<option value="sony">Sony</option>
+		<option value="bose">Bose</option>
+		<option value="beats">Beats</option>
+	</select>
+	<br>
+	<select class="select-css" name="wireType" id="wireType" required >
+		<option value="none">none</option>
+		<option value="wired">Wired</option>
+		<option value="wireless">Wireless</option>
+	</select>
+	<br>
+	<select class="select-css" name="price" id="price" required >
+		<option value="none">none</option>
+		<option value="less100"><$100</option>
+		<option value="grt100">>$100</option>
+	</select>
+	<br>
+	<button class="submit" onclick="headphoneFinder()"id="Submit">Submit</button>
+	<div class="card" id="chosenHeadphone">
+	</div>
+	<hr>
+	<h2 style="text-align:center">Product Browser</h2>
+	<div class="dark-wrapper">
+		<select class="select-css" name="browser" id="browser" onchange="setFilter();">
+			<option value="none">none</option>
+  		<option value="kids">Kids</option>
+  		<option value="wireless">Wireless</option>
+			<option value="wired">Wired</option>
+  		<option value="under50">Under $50</option>
+	</select>
+	</div>
+	<br>
+	<a name="browser"> </a>
+<div class="productBrowser">
+
+	<div class="card" id="headphone1">
+  	<img src="headphone1.jpg" alt="headphones" style="width:100%">
+  	<h1>Vogek On Ear Headphones with Mic</h1>
+  	<p class="price">$15.99</p>
+  	<p>Designed with padded headband, cushioned & pressure-relieving ear pads that rest comfortably on your ears. Strong bass, comfortable on ear headphones with a great seal which minimize outside noise so you can hear the beats clearly</p>
+  	<a href="https://www.amazon.com/Headphones-Lightweight-Portable-Fold-Flat-Microphone-Black/dp/B07MCCJ6VY/ref=sr_1_3?keywords=headphones&qid=1575330842&sr=8-3">Purchase</a>
+	</div>
+	<div class="card" id="headphone2">
+  	<img src="headphone2.jpg" alt="headphones" style="width:100%;" >
+  	<h1>Bose QuietComfort 35</h1>
+  	<p class="price">$279.99</p>
+  	<p>Three levels of world-class noise cancellation for better listening experience in any environment Alexa-enabled for voice access to music, information, and more Noise</p>
+  	<a href="https://www.amazon.com/Bose-QuietComfort-Wireless-Headphones-Cancelling/dp/B0756CYWWD/ref=sxin_4_osp21-bc0957bb_cov?ascsubtag=bc0957bb-263c-40cc-a2bf-c26a24e87fca&creativeASIN=B0756CYWWD&cv_ct_id=amzn1.osp.bc0957bb-263c-40cc-a2bf-c26a24e87fca&cv_ct_pg=search&cv_ct_wn=osp-search&keywords=headphones&linkCode=oas&pd_rd_i=B0756CYWWD&pd_rd_r=9268bda7-9423-4355-886f-58cd6b2e597b&pd_rd_w=v34KD&pd_rd_wg=SGFiq&pf_rd_p=a23a388c-add5-49df-b293-a31ade89c6bf&pf_rd_r=HVPSZJNJM0WVDY3FXXH4&qid=1575330842&smid=ATVPDKIKX0DER&tag=onsitertings-20">Purchase</a>
+	</div>
+	<div class="card" id="headphone3">
+  	<img src="headphone3.jpg" alt="headphones" style="width:100%">
+  	<h1>Mpow 059 Bluetooth Headphones</h1>
+  	<p class="price">$33.99</p>
+  	<p>MPRESSIVE SOUND QUALITY IS THE ULTIMATE GOAL: The High-fidelity stereo sound benefits from the 40mm neodymium driver, CSR chip, and the around-ear cushion design which provide a well-closed and immersed enviroment for your ears</p>
+  	<a href="https://www.amazon.com/Mpow-Bluetooth-Headphones-Wireless-Memory-Protein/dp/B01NAJGGA2/ref=sr_1_4?keywords=headphones&qid=1575330842&sr=8-4">Purchase</a>
+	</div>
+	<div class="card" id="headphone4">
+  	<img src="headphone4.jpg" alt="headphones" style="width:100%">
+  	<h1>OneOdio Adapter-Free Closed Back Over-Ear DJ Stereo Monitor Headphones</h1>
+  	<p class="price">$21.99</p>
+  	<p>SUPERIOR SOUND: Enjoy clear sound and supreme comfort with the OneOdio Studio monitor headphones. Large, 50 millimeter speaker unit drivers combined with neodymium magnets; powerful bass, clear vocal, and crisp high tones form</p>
+  	<a href="https://www.amazon.com/OneOdio-Adapter-Free-Headphones-Professional-Telescopic/dp/B01N6ZJH96/ref=sr_1_6?keywords=headphones&qid=1575330842&sr=8-6">Purchase</a>
+	</div>
+	<div class="card" id="headphone5">
+  	<img src="headphone5.jpg" alt="headphones" style="width:100%">
+  	<h1>LETSCOM Bluetooth Headphones</h1>
+  	<p class="price">$19.99</p>
+  	<p>High Fidelity Sound: 11mm vibrating diaphragm, CSR chip and Bluetooth 4.1 technology deliver high-fidelity audio; CVC noise cancellation Built-in mic for stereo sound and superb bass sound. </p>
+  	<a href="https://www.amazon.com/LETSCOM-Headphones-Waterproof-Sweatproof-Cancelling/dp/B07DXQTCQL/ref=sr_1_9?keywords=headphones&qid=1575330842&sr=8-9">Purchase</a>
+	</div>
+	<div class="card" id="headphone6">
+  	<img src="headphone6.jpg" alt="headphones" style="width:100%">
+  	<h1>Apple EarPods with Lightning Connector</h1>
+  	<p class="price">$20.99</p>
+  	<p>Unlike traditional, circular earbuds, the design of the EarPods is defined by the geometry of the ear Which makes them more comfortable for more people than any other earbud-style headphones</p>
+  	<a href="https://www.amazon.com/Apple-EarPods-Lightning-Connector-White/dp/B01M0GB8CC/ref=sr_1_8?keywords=headphones&qid=1575330842&sr=8-8">Purchase</a>
+	</div>
+	<div class="card" id="headphone7">
+  	<img src="headphone7.jpg" alt="headphones" style="width:100%">
+  	<h1>Sony WH-CH700N Wireless Bluetooth Noise Canceling</h1>
+  	<p class="price">$79.99</p>
+  	<p>DIGITAL NOISE CANCELLING: Blocks out distracting background noise for a better music experience AI POWERED: Hold the NC button for uniquely tuned noise cancellation courtesy of next gen AI tech</p>
+  	<a href="https://www.amazon.com/Sony-WH-CH700N-Canceling-Headphones-WHCH700N/dp/B079GPFLT1/ref=sr_1_13?keywords=headphones&qid=1575330842&smid=ATVPDKIKX0DER&sr=8-13">Purchase</a>
+	</div>
+	<div class="card" id="headphone8">
+  	<img src="headphone8.jpg" alt="headphones" style="width:100%">
+  	<h1>Bose SoundLink Around Ear</h1>
+  	<p class="price">$179.99</p>
+  	<p>Deep, immersive sound, improved EQ best in class performance for wireless headphones. Connectivity Technology: Wired/Wireless Latest Bluetooth technology for easy connectivity and seamless</p>
+  	<a href="https://www.amazon.com/Bose-SoundLink-around-ear-wireless-headphones/dp/B0117RGG8E/ref=sr_1_15?keywords=headphones&qid=1575330842&smid=ATVPDKIKX0DER&sr=8-15">Purchase</a>
+	</div>
+	<div class="card" id="headphone9">
+  	<img src="headphone9.jpg" alt="headphones" style="width:100%">
+  	<h1>COWIN E7 Active Noise Cancelling Headphones</h1>
+  	<p class="price">$49.99</p>
+  	<p>Professional Active Noise Cancelling Technology. Significant noise reduction for travel, work and anywhere in between. Advanced active noise reduction technology quells airplane cabin noise</p>
+  	<a href="https://www.amazon.com/Cancelling-Headphones-Bluetooth-Microphone-Comfortable/dp/B019U00D7K/ref=sr_1_16?keywords=headphones&qid=1575330842&smid=A10XDMRONAH0FW&sr=8-16">Purchase</a>
+	</div>
+	<div class="card" id="headphone10">
+  	<img src="headphone10.jpg" alt="headphones" style="width:100%">
+  	<h1>Elecder i37 Kids Headphones Children</h1>
+  	<p class="price">$9.99</p>
+  	<p>Excellent Sound: Stereo bass headphone with excellent sound effect, 3.5mm plug compatible with all 3.5mm jack devices Durable and Not Tangle: The headphone cord length is 4.9 ft (1.5m)</p>
+  	<a href="https://www.amazon.com/i37-Headphones-Adjustable-Compatible-Cellphones/dp/B078XZX9MD/ref=sr_1_18?keywords=headphones&qid=1575330842&sr=8-18">Purchase</a>
+	</div>
+	<div class="card" id="headphone11">
+  	<img src="headphone11.jpg" alt="headphones" style="width:100%">
+  	<h1>Bluetooth Headphones, LETSCOM Wireless Headphones Over Ear</h1>
+  	<p class="price">$25.99</p>
+  	<p>Up to 100 hours of playtime: you can use the Bluetooth headphones for 40 days when you use them for 3 hours A day, or travel with the headphones for a month without charging. Deep bass function: The wireless headphones with </p>
+  	<a href="https://www.amazon.com/Bluetooth-Headphones-LETSCOM-Wireless-Cellphone/dp/B07TQM2FTD/ref=sr_1_20?keywords=headphones&qid=1575330842&sr=8-20">Purchase</a>
+	</div>
+	<div class="card" id="headphone12">
+  	<img src="headphone12.jpg" alt="headphones" style="width:100%">
+  	<h1>Beats Solo3 Wireless On-Ear Headphones</h1>
+  	<p class="price">$129.99</p>
+  	<p>With up to 40 hours of battery life, Beats Solo3 Wireless is your perfect everyday headphone Premium playback and fine-tuned acoustics maximize clarity, breadth, and balance</p>
+  	<a href="https://www.amazon.com/Beats-Solo3-Wireless-Ear-Headphones/dp/B07HKHWX7X/ref=sr_1_20?keywords=headphones&qid=1575333989&sr=8-20">Purchase</a>
+	</div>
+	<div class="card" id="headphone13">
+  	<img src="headphone13.jpg" alt="headphones" style="width:100%">
+  	<h1>Sony Noise Cancelling Headphones WH1000XM3</h1>
+  	<p class="price">$277.99</p>
+  	<p>DIGITAL NOISE CANCELING: Industry leading ANC lends a personalized, virtually soundproof experience VOICE ASSISTANT: Alexa enabled for voice access to music, information and more. Activate with a simple touch</p>
+  	<a href="https://www.amazon.com/Sony-Noise-Cancelling-Headphones-WH1000XM3/dp/B07G4MNFS1/ref=sr_1_22?keywords=headphones&qid=1575333989&smid=ATVPDKIKX0DER&sr=8-22">Purchase</a>
+	</div>
+	<div class="card" id="headphone14">
+  	<img src="headphone14.jpg" alt="headphones" style="width:100%">
+  	<h1>JVC Black Flat and Foldable Colorful Flats</h1>
+  	<p class="price">$9.99</p>
+  	<p>SOFT ON EAR PADS - Soft Ear Pads for Sound Isolation and Comfort Fit. STAINLESS STEEL HEAD FIT SIZE EXPANDER - Rugged Stainless Steel for Perfect Head Fit. Large Head, Medium Head or Small Head Headphones.</p>
+  	<a href="https://www.amazon.com/JVC-HAS160B-Lightweight-Headband-Headphones/dp/B004JRYLG4/ref=sr_1_24?keywords=headphones&qid=1575333989&sr=8-24">Purchase</a>
+	</div>
+	<div class="card" id="headphone15">
+  	<img src="headphone15.jpg" alt="headphones" style="width:100%">
+  	<h1>Panasonic Headphones RP-HT161-K</h1>
+  	<p class="price">$16.99</p>
+  	<p>Wired Over the Ear Headphones: Full size, classic style headphones deliver balanced, high frequency sound on par with higher priced headphones for maximum value and hours of listening enjoyment</p>
+  	<a href="https://www.amazon.com/Panasonic-Headphones-RP-HT161-K-Lightweight-Long-Corded/dp/B075LT8YLR/ref=sr_1_26?keywords=headphones&qid=1575333989&sr=8-26"> Purchase</a>
+	</div>
+	<div class="card" id="headphone16">
+  	<img src="headphone16.jpg" alt="headphones" style="width:100%">
+  	<h1>Philips SHP9500 HiFi Precision Stereo</h1>
+  	<p class="price">$54.99</p>
+  	<p>50mm neodymium drivers deliver full spectrum of sound 1.5m cable gives you freedom of movement for indoor use Comfortable double layered headband cushion, breathable ear cushion for longer </p>
+  	<a href="https://www.amazon.com/Philips-SHP9500S-Precision-Over-ear-Headphones/dp/B00ENMK1DW/ref=sr_1_29?keywords=headphones&qid=1575333989&smid=ATVPDKIKX0DER&sr=8-29">Purchase</a>
+	</div>
+	<div class="card" id="headphone17">
+  	<img src="headphone17.jpg" alt="headphones" style="width:100%">
+  	<h1>Beats Studio3 Wireless Noise Cancelling</h1>
+  	<p class="price">$279.99</p>
+  	<p>Pure adaptive noise canceling (pure ANC) actively blocks external noise Real-time Audio calibration preserves a Premium listening experience great seal which minimize outside noise so you can hear the beats clearly</p>
+  	<a href="https://www.amazon.com/Beats-Studio3-Wireless-Over-Ear-Headphones/dp/B077RY9GZD/ref=sr_1_30?keywords=headphones&qid=1575333989&sr=8-30">Purchase</a>
+	</div>
+	<div class="card" id="headphone18">
+  	<img src="headphone18.jpg" alt="headphones" style="width:100%">
+  	<h1>Sony MDR7506 Professional Headphone</h1>
+  	<p class="price">$79.99</p>
+  	<p>Neodymium magnets and 40 millimeter drivers for powerful, detailed sound Closed ear design provides comfort and outstanding reduction of external noises 9.8 foot cord ends in gold plated plug and it is not detachable</p>
+  	<a href="https://www.amazon.com/Sony-MDR7506-Professional-Diaphragm-Headphone/dp/B000AJIF4E/ref=sr_1_31?keywords=headphones&qid=1575333989&sr=8-31">Purchase</a>
+	</div>
+	<div class="card" id="headphone19">
+  	<img src="headphone19.jpg" alt="headphones" style="width:100%">
+  	<h1>Kids Headphones noot products K11 Foldable Stereo </h1>
+  	<p class="price">$14.99</p>
+  	<p>On-ear headphones has padded soft cushions and noise reduction. Adjustable headband to ensure a perfect fit, and a lightweight design for kids age 3 and up. Foldable design for a more compact storage. The cord is a 5</p>
+  	<a href="https://www.amazon.com/Kids-Headphones-products-Tangle-Free-Ear/dp/B0746RBK2M/ref=sr_1_32?keywords=headphones&qid=1575333989&smid=A3FSIWTA4211F2&sr=8-32">Purchase</a>
+	</div>
+	<div class="card" id="headphone20">
+  	<img src="headphone20.jpg" alt="headphones" style="width:100%">
+  	<h1>Audio-Technica ATH-M20x Professional Studio</h1>
+  	<p class="price">$49.99</p>
+  	<p>Advanced build quality and engineering; Designed for studio tracking and mixing 40 millimeter drivers with rare earth magnets and copper clad aluminum wire voice coils Tune for enhanced low frequency performance</p>
+  	<a href="https://www.amazon.com/Audio-Technica-ATH-M20x-Professional-Monitor-Headphones/dp/B00HVLUR18/ref=sr_1_33?keywords=headphones&qid=1575333989&sr=8-33">Purchase</a>
+	</div>
+</div>
+	<div class="headphoneRecommender">
+	</div>
+</body>
